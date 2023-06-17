@@ -70,6 +70,10 @@ cardFollowers.textContent = cardObject.data.followers
 cardFollowing.textContent = cardObject.data.Following
 cardBio.textContent = cardObject.data.bio
 //
+cardContainer.append(cardImage, cardInfo)
+cardInfo.append(cardHeading, cardUserName, cardLocation, cardProfile, cardFollowers, cardFollowing, cardBio)
+cardProfile.append(cardAddress)
+//
 }
 
 
