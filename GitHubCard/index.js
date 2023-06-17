@@ -1,8 +1,23 @@
+import axios from "axios"
+
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+
+const myInfo = axios.get("https://api.github.com/users/Jay-iguez")
+.then(result => {
+  console.log(result)
+})
+.catch(error => {
+  console.error(error)
+})
+.finally(() => {
+  console.log("Were still going")
+})
+
+
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
