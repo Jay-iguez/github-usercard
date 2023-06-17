@@ -6,13 +6,31 @@ import axios from "axios"
     https://api.github.com/users/<your name>
 */
 
-axios.get("https://api.github.com/users/Jay-iguez")
+const followersArray = [
+  `Jay-iguez`,
+  'octocat',
+  'dustinmyers',
+  'justsml',
+  'luishrd',
+  'bigknell'];
+
+followersArray.forEach(element => {
+  changingCards(element)
+})
+
+function changingCards(user) { 
+
+axios.get(`https://api.github.com/users/${user}`)
 .then(result => {
- document.querySelector(".cards").appendChild(createCard(result.data))
+  console.log(result.data)
+  const card = createCard(result.data)
+ document.querySelector(".cards").appendChild(card)
 })
 .catch(error => {
   console.error(error)
 })
+}
+
 
 
 /*
@@ -39,7 +57,7 @@ axios.get("https://api.github.com/users/Jay-iguez")
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+
 
 function createCard(cardObject) {
 const cardContainer = document.createElement("div")
