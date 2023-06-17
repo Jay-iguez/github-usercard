@@ -58,8 +58,21 @@ const cardFollowers = document.createElement("p")
 const cardFollowing = document.createElement("p")
 const cardBio = document.createElement("p")
 //
-
+cardContainer.classList.add("card")
+cardImage.src = cardObject.data.avatar_url
+cardInfo.classList.add("card-info")
+cardHeading.classList.add("name")
+cardHeading.textContent = cardObject.data.name
+cardLocation.textContent = cardObject.data.location
+cardAddress.href = cardObject.data.html_url
+cardAddress.textContent = cardObject.data.html_url
+cardFollowers.textContent = cardObject.data.followers
+cardFollowing.textContent = cardObject.data.Following
+cardBio.textContent = cardObject.data.bio
+//
 }
+
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
