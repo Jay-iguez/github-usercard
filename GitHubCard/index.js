@@ -6,18 +6,14 @@ import axios from "axios"
     https://api.github.com/users/<your name>
 */
 
-const myInfo = axios.get("https://api.github.com/users/Jay-iguez")
+axios.get("https://api.github.com/users/Jay-iguez")
 .then(result => {
-  return result
+ document.querySelector(".cards").appendChild(createCard(result.data))
 })
 .catch(error => {
   console.error(error)
 })
-.finally(() => {
-  console.log("Were still going")
-})
 
-console.log(myInfo)
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -59,24 +55,24 @@ const cardFollowing = document.createElement("p")
 const cardBio = document.createElement("p")
 //
 cardContainer.classList.add("card")
-cardImage.src = cardObject.data.avatar_url
+cardImage.src = cardObject.avatar_url
 cardInfo.classList.add("card-info")
 cardHeading.classList.add("name")
-cardHeading.textContent = cardObject.data.name
-cardLocation.textContent = cardObject.data.location
-cardAddress.href = cardObject.data.html_url
-cardAddress.textContent = cardObject.data.html_url
-cardFollowers.textContent = cardObject.data.followers
-cardFollowing.textContent = cardObject.data.Following
-cardBio.textContent = cardObject.data.bio
+cardHeading.textContent = cardObject.name
+cardLocation.textContent = `Location: ${cardObject.location}`
+cardProfile.textContent = "Profile: "
+cardAddress.href = cardObject.html_url
+cardAddress.textContent = cardObject.html_url
+cardFollowers.textContent = `Followers ${cardObject.followers}`
+cardFollowing.textContent = `Following ${cardObject.Following}`
+cardBio.textContent = `Bio: ${cardObject.bio}`
 //
 cardContainer.append(cardImage, cardInfo)
 cardInfo.append(cardHeading, cardUserName, cardLocation, cardProfile, cardFollowers, cardFollowing, cardBio)
 cardProfile.append(cardAddress)
 //
+return cardContainer
 }
-
-
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
