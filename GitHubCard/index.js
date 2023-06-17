@@ -8,7 +8,7 @@ import axios from "axios"
 
 const myInfo = axios.get("https://api.github.com/users/Jay-iguez")
 .then(result => {
-  console.log(result)
+  return result
 })
 .catch(error => {
   console.error(error)
@@ -17,7 +17,7 @@ const myInfo = axios.get("https://api.github.com/users/Jay-iguez")
   console.log("Were still going")
 })
 
-
+console.log(myInfo)
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -44,6 +44,22 @@ const myInfo = axios.get("https://api.github.com/users/Jay-iguez")
 */
 
 const followersArray = [];
+
+function createCard(cardObject) {
+const cardContainer = document.createElement("div")
+const cardImage = document.createElement("img")
+const cardInfo = document.createElement("div")
+const cardHeading = document.createElement("h3")
+const cardUserName = document.createElement("p")
+const cardLocation = document.createElement("p")
+const cardProfile = document.createElement("p")
+const cardAddress = document.createElement("a")
+const cardFollowers = document.createElement("p")
+const cardFollowing = document.createElement("p")
+const cardBio = document.createElement("p")
+//
+
+}
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
